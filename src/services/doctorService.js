@@ -213,6 +213,7 @@ let checkRequiredFields = (inputData) => {
     };
 };
 
+// Lưu thông tin bác sĩ
 let saveDetailInforDoctor = (inputData) => {
     return new Promise(async (resolve, reject) => {
         try {

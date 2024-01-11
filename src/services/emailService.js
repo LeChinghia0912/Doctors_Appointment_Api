@@ -2,7 +2,7 @@ require('dotenv').config();
 import nodemailer from 'nodemailer';
 
 let sendSimpleEmail = async (dataSend) => {
-    // create reusable transporter object using the default SMTP transport
+    // tạo đối tượng vận chuyển có thể tái sử dụng bằng cách sử dụng vận chuyển SMTP mặc định
     let transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 587,
@@ -13,11 +13,11 @@ let sendSimpleEmail = async (dataSend) => {
         },
     });
 
-    // send mail with defined transport object
+    // gửi thư với đối tượng vận chuyển được xác định
     let info = await transporter.sendMail({
-        from: '"Lê Chí Nghĩa" <lcnghia.20it12@vku.udn.vn>', // sender address
-        to: dataSend.receiverEmail, // list of receivers
-        subject: 'Thông tin đặt lịch khám bệnh', // Subject line
+        from: '"Lê Chí Nghĩa" <lcnghia.20it12@vku.udn.vn>', // Địa chỉ người gởi
+        to: dataSend.receiverEmail, // danh sách người nhận
+        subject: 'Thông tin đặt lịch khám bệnh', // Chủ đề
         html: getBodyHTMLEmail(dataSend),
     });
 };
@@ -88,15 +88,15 @@ let sendAttachment = async (dataSend) => {
                 },
             });
 
-            // send mail with defined transport object
+            // gửi thư với đối tượng vận chuyển được xác định
             let info = await transporter.sendMail({
-                from: '"Lê Chí Nghĩa " <lcnghia.20it12@vku.udn.vn>', // sender address
-                to: dataSend.email, // list of receivers
+                from: '"Lê Chí Nghĩa " <lcnghia.20it12@vku.udn.vn>', // địa chỉ người gửi
+                to: dataSend.email, // danh sách người nhận
                 subject: 'Thông tin đặt lịch khám bệnh', // Subject line
                 html: getBodyHTMLEmailRemedy(dataSend),
                 attachments: [
                     {
-                        // encoded string as an attachment
+                        // chuỗi được mã hóa dưới dạng tệp đính kèm
                         filename: `remedy-${dataSend.patientId}-${new Date().getTime()}.png`,
                         content: dataSend.imgBase64.split('base64,')[1],
                         encoding: 'base64',
@@ -112,7 +112,7 @@ let sendAttachment = async (dataSend) => {
 };
 
 let sendForgotPasswordEmail = async (dataSend) => {
-    // create reusable transporter object using the default SMTP transport
+    // tạo đối tượng vận chuyển có thể tái sử dụng bằng cách sử dụng vận chuyển SMTP mặc định
     let transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 587,

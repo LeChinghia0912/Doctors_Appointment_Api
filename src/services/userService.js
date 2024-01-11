@@ -478,6 +478,8 @@ let filterUsers = (data) => {
             let position = data.position;
             let gender = data.gender;
 
+            //sử dụng Sequelize, một ORM (Object-Relational Mapping) cho nodejs
+            //để lấy dữ liệu từ cơ sở dữ liệu dựa trên nhiều điều kiện khác nhau tùy biến
             if (firstName) {
                 options.where.firstName = {
                     [Op.like]: '%' + firstName + '%',

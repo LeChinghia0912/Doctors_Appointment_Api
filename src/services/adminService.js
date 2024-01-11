@@ -2,6 +2,7 @@ const db = require('../models');
 const moment = require('moment');
 const { Sequelize } = require('sequelize');
 
+//doanh thu
 let getWeeklyRevenue = () => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -35,6 +36,7 @@ let getWeeklyRevenue = () => {
     });
 };
 
+// user new
 let getTotalNewUserDay = () => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -64,7 +66,7 @@ let getTotalNewUserDay = () => {
         }
     });
 };
-
+// đặt lịch hẹn thành công
 let getTotalHealthAppointmentDone = () => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -87,6 +89,7 @@ let getTotalHealthAppointmentDone = () => {
     });
 };
 
+// lấy sll doctor
 let getTotalDoctor = () => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -108,7 +111,7 @@ let getTotalDoctor = () => {
         }
     });
 };
-
+// top bác sĩ của năm
 let getTopThreeIdDoctorOfTheYear = () => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -140,6 +143,7 @@ let getTopThreeIdDoctorOfTheYear = () => {
     });
 };
 
+// nhận Tổng doanh thu Doctor mỗi tháng theo DoctorId
 let getTotalRevenueDoctorEachMonthByDoctorId = (doctorId) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -257,6 +261,7 @@ let getTotalRevenueDoctorEachMonthByDoctorId = (doctorId) => {
     });
 };
 
+//nhận được Top Ba bác sĩ của năm
 let getTopThreeDoctorsOfTheYear = () => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -296,6 +301,7 @@ let getTopThreeDoctorsOfTheYear = () => {
     });
 };
 
+// bệnh nhân vip
 let getTopFourVipPatient = () => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -334,6 +340,7 @@ let getTopFourVipPatient = () => {
     });
 };
 
+//doanh thu hàng tháng
 let getMonthlyRevenueSpecialty = () => {
     return new Promise(async (resolve, reject) => {
         try {

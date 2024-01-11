@@ -10,6 +10,7 @@ let buildUrlEmail = (doctorId, token) => {
     return result;
 };
 
+// bookapp
 let postBookAppointment = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -19,7 +20,7 @@ let postBookAppointment = (data) => {
                     errMessage: 'Missing required parameter',
                 });
             } else {
-                //check limit booking on table schedule
+                //kiểm tra giới hạn đặt chỗ trên lịch trình trình
                 let schedule = await db.Schedule.findOne({
                     where: {
                         date: data.date,
@@ -88,7 +89,7 @@ let postBookAppointment = (data) => {
         }
     });
 };
-
+//bài đăng Xác minh cuộc hẹn đặt lịch
 let postVerifyBookAppointment = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -123,6 +124,7 @@ let postVerifyBookAppointment = (data) => {
     });
 };
 
+// lịch sử
 let filterHistory = (data) => {
     return new Promise(async (resolve, reject) => {
         try {

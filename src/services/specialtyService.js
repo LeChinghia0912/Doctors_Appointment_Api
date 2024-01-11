@@ -55,6 +55,7 @@ let getAllSpecialty = (dataInput) => {
 };
 
 let getDetailSpecialtyById = (inputId, location) => {
+    // truyền vào 2 biến inputId vs location
     return new Promise(async (resolve, reject) => {
         try {
             if (!inputId || !location) {
@@ -63,15 +64,18 @@ let getDetailSpecialtyById = (inputId, location) => {
                     errMessage: 'Missing required parameter',
                 });
             } else {
+                // thực hiện tìm
                 let data = await db.Specialty.findOne({
                     where: { id: inputId },
                     attributes: ['id', 'name', 'descriptionHTML', 'descriptionMarkdown', 'image'],
                 });
 
                 if (data) {
+                    // nếu tìm thấy data
                     //do something
                     let doctorSpecialty = [];
                     if (location === 'ALL') {
+                        // lấy tất cả
                         doctorSpecialty = await db.Doctor_Infor.findAll({
                             where: { specialtyId: inputId },
                             attributes: ['doctorId', 'provinceId'],
